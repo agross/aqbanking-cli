@@ -22,6 +22,12 @@ docker run --rm ghcr.io/agross/aqbanking-cli:pr-123 aqbanking-cli versions
 Fork pull requests build both architectures and run the same build-time checks,
 but skip registry login and publishing.
 
+After a successful image publish from the default branch, a separate job creates a GitHub
+release named and tagged with the AqBanking version (for example, `6.9.2`).
+Release notes are generated from commits, matching the `aqbanking-sql` workflow.
+An existing release for that version is left unchanged. Pull requests and pushes
+to other branches do not create releases.
+
 After the workflow has published an image:
 
 ```sh
