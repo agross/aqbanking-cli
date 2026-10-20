@@ -1,0 +1,14 @@
+--- a/src/tools/aqbanking-cli/export.c
++++ b/src/tools/aqbanking-cli/export.c
+@@ -269,6 +269,11 @@
+ 
+     iea=AB_ImExporterAccountInfo_List_Next(iea);
+   } /* while */
++  /* Securities belong to the context, independently of account filters. */
++  if (AB_ImExporterContext_GetSecurityList(ctx))
++    AB_ImExporterContext_SetSecurityList(nctx,
++                                        AB_Security_List_dup(AB_ImExporterContext_GetSecurityList(ctx)));
++
+   AB_ImExporterContext_free(ctx); /* old context */
+ 
+   /* export new context */

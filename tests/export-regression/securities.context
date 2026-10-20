@@ -1,0 +1,49 @@
+accountInfoList {
+  accountInfo {
+    char bankCode="12345678"
+    char accountNumber="12345"
+    int accountType="1"
+  }
+}
+securityList {
+  security {
+    char name="Synthetic A"
+    char uniqueId="IE00B3RBWM25"
+    char nameSpace="ISIN"
+    char units="12345%2F10000"
+    char unitPriceValue="123456%2F1000%3AEUR"
+    unitPriceDate {
+      date {
+        int day="19"
+        int month="10"
+        int year="2026"
+      }
+      int inUtc="1"
+      time {
+        int hour="12"
+        int min="34"
+        int sec="56"
+      }
+    }
+  }
+  security {
+    char name="Synthetic B"
+    char uniqueId="US0378331005"
+    char nameSpace="ISIN"
+    char units="2"
+    char unitPriceValue="5678%2F100%3AEUR"
+    unitPriceDate {
+      date {
+        int day="19"
+        int month="10"
+        int year="2026"
+      }
+      int inUtc="1"
+      time {
+        int hour="12"
+        int min="35"
+        int sec="57"
+      }
+    }
+  }
+}

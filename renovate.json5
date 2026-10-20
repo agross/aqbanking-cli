@@ -1,0 +1,40 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
+    ':disableRateLimiting',
+    ':enableVulnerabilityAlerts',
+    ':rebaseStalePrs',
+    ':semanticCommitsDisabled',
+    ':maintainLockFilesWeekly',
+    ':automergeBranch',
+    ':automergeMinor',
+  ],
+  labels: [
+    'dependencies',
+  ],
+  customManagers: [
+    {
+      description: 'AqBanking and Gwenhywfar versions in Dockerfiles',
+      customType: 'regex',
+      managerFilePatterns: [
+        '/(^|/)Dockerfile$/',
+      ],
+      matchStrings: [
+        '# renovate: datasource=(?<datasource>[a-z-.]+?) depName=(?<depName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s+ARG .+?_VERSION=(?<currentValue>[^\\s]+)',
+      ],
+    },
+  ],
+  packageRules: [
+    {
+      description: 'Group Docker-related GitHub Actions',
+      matchManagers: [
+        'github-actions',
+      ],
+      matchPackageNames: [
+        'docker/*',
+      ],
+      groupName: 'Docker Actions',
+    },
+  ],
+}

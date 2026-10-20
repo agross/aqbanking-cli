@@ -1,0 +1,5 @@
+.git/
+README.md
+renovate.json5
+**/__pycache__/
+*.pyc
