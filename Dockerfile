@@ -5,7 +5,7 @@ ARG AQBANKING_VERSION=6.9.2
 
 # AqBanking uses Gwenhywfar for its shared runtime and plugin infrastructure.
 # renovate: datasource=github-tags depName=aqbanking/gwenhywfar
-ARG GWENHYWFAR_VERSION=5.14.2
+ARG GWENHYWFAR_VERSION=5.14.3
 
 RUN apk add \
         --no-cache \
